@@ -1,0 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Opcional: para probar sin scrollbars */
+}
+
+#ps4-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -999; /* Se asegura de estar detrás de todo */
+    background: linear-gradient(195deg, #00468c 0%, #000e38 100%); /* Azul PS4 */
+    pointer-events: none; /* Deja pasar los clicks a tu web */
+}

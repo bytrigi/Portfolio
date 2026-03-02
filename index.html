@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
+    <link rel="stylesheet" href="./style.css?v=2">
+    <link rel="icon" href="./favicon2.ico">
+
+    <style>
+        /* El fondo azul tendrá una transición suave de opacidad */
+        #bg-intro {
+            transition: opacity 1.5s ease-in-out;
+            opacity: 1;
+        }
+
+        /* Clase para ocultarlo */
+        .bg-hidden {
+            opacity: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe id="bg-portfolio" src="./assets/background/floating_icons/index.html"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; border: none; pointer-events: none;"></iframe>
+    <iframe id="bg-intro" src="./assets/background/blue/index.html"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; border: none; pointer-events: none;"></iframe>
+
+
+    <section id="sound-check-overlay"
+        style="position: fixed; top:0; left:0; width: 100vw; height: 100vh; background: black; z-index: 20000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;">
+        <div style="max-width: 600px; padding: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-bottom: 20px; opacity: 0.8;">
+                <path d="M15 8a5 5 0 0 1 0 8"></path>
+                <path d="M17.7 5a9 9 0 0 1 0 14"></path>
+                <path
+                    d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5">
+                </path>
+            </svg>
+            <h2 style="font-family: sans-serif; font-weight: normal; margin-bottom: 15px;">Experiencia Inmersiva</h2>
+            <p style="font-family: sans-serif; color: #aaa; margin-bottom: 30px; line-height: 1.5;">
+                Esta página utiliza audio para simular la interfaz de PlayStation 4.<br>
+                Por favor, activa el sonido para continuar. Podrás desactivarlo más adelante.
+            </p>
+            <button id="btn-enable-sound"
+                style="padding: 12px 30px; background: transparent; border: 1px solid white; color: white; border-radius: 30px; cursor: pointer; font-size: 16px; transition: all 0.3s;">
+                Activar Sonido e Iniciar
+            </button>
+        </div>
+    </section>
+
+    <section id="ps4-startup-screen" class="hidden">
+        <img id="startup-logo" src="./img/logo_custom_final.png" alt="Logo PlayStation 4">
+    </section>
+
+    <section id="ps4-welcome-screen" class="full-screen-overlay hidden">
+        <div class="welcome-content">
+            <img src="./img/logov2.png" alt="Logo PS4 custom">
+            <div class="warning-text">
+                <h2>Bienvenido a Mi Portfolio</h2>
+                <p class="blink">Haz click para entrar</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ps4-user-select" class="full-screen-overlay hidden">
+        <div class="user-select-container">
+            <div class="info_text_controller_connected">
+                <img src="./assets/icons/device-gamepad-2.svg" alt="">
+                <h2>Portfolio iniciado, ¿De quién deseas ver el portfolio?</h2>
+            </div>
+            <div class="users-grid">
+                <div class="user-card" id="user-profile-btn">
+                    <div class="user-avatar-container">
+                        <img src="./img/descarga.jpg" alt="User Avatar">
+                    </div>
+                    <h3>Adrián Trigo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-portfolio">
+        <div class="columna_izq">
+            <img src="./img/descarga.jpg" alt="Foto de perfil" id="pfp">
+            <h1>Adrián Trigo Cadaveira</h1>
+            <p>Desarrollador de aplicaciones multiplataforma 💻</p>
+            <div class="social_links">
+                <a href="https://www.linkedin.com/in/adri%C3%A1n-trigo-cadaveira-543348356/" target="_blank">
+                    <div>
+                        <img src="./assets/icons/social_cards/Friend-request-icon.svg" alt="">
+                        <p>Enviar solicitud de amistad</p>
+                    </div>
+                </a>
+                <a href="https://github.com/bytrigi" target="_blank">
+                    <div>
+                        <img src="./assets/icons/social_cards/trophies-icon.svg" alt="">
+                        <p>Ver trofeos</p>
+                    </div>
+                </a>
+                <a href="mailto:adritrg28@gmail.com" target="_blank">
+                    <div>
+                        <img src="./assets/icons/social_cards/messages-icon.svg" alt="">
+                        <p>Enviar mensaje</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="columna_drch">
+            <section id="profile" class="secciones">
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/user.svg" alt="">
+                    <h2>Perfil</h2>
+                </div>
+                <p>
+                    Desarrollador de Aplicaciones Multiplataforma (DAM) con un enfoque especial en la creación de
+                    interfaces intuitivas y experiencias de usuario inmersivas.
+                    Me especializo en transformar ideas complejas en software funcional, manteniendo siempre un código
+                    limpio y eficiente.
+                    Mi pasión por la tecnología me lleva a estar en constante aprendizaje de nuevos frameworks y
+                    lenguajes para ofrecer siempre la mejor solución técnica.
+                </p>
+            </section>
+            <section id="education" class="secciones">
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/school.svg" alt="">
+                    <h2>Formacion Academica</h2>
+                </div>
+
+                <h3 class="subsection-title">Formación Principal</h3>
+                <div class="education-group">
+                    <div class="education-card">
+                        <img src="./assets/icons/list_icons/award_colored.svg" alt="icono_award">
+                        <p>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM): Liceo La Paz, (En
+                            Curso).</p>
+                    </div>
+                    <div class="education-card">
+                        <img src="./assets/icons/list_icons/award_colored.svg" alt="icono_award">
+                        <p>Grado en Ingeniería Informática: Universidade da Coruña, (En Curso).</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Certificados</h3>
+                <div class="education-group">
+                    <div class="education-card cert-card">
+                        <img src="./assets/icons/list_icons/award_colored.svg" alt="">
+                        <p><a href="./assets/certificates/pdf/Certificado Master CSS.pdf" target="_blank"
+                                class="cert-link">Master en CSS Responsive, SAAS, Flexbox, Grid y Bootstrap, Udemy -
+                                Victor Robles Web. <img src="./assets/certificates/img/Certificado Master CSS.jpg"
+                                    alt="Preview del certificado" class="cert-preview"></a></p>
+                    </div>
+                    <div class="education-card cert-card">
+                        <img src="./assets/icons/list_icons/award_colored.svg" alt="">
+                        <p><a href="./assets/certificates/pdf/Certificado Master en Desarrollo con IA.pdf"
+                                target="_blank" class="cert-link">Certificado Curso de Introduccion al desarrollo
+                                con IA, BIG SCHOOL <img
+                                    src="./assets/certificates/img/Certificado Master en Desarrollo con IA.jpg"
+                                    alt="Preview del certificado" class="cert-preview"></a></p>
+                    </div>
+                    <div class="education-card cert-card">
+                        <img src="./assets/icons/list_icons/award_colored.svg" alt="">
+                        <p><a href="./assets/certificates/pdf/Certificado Ciberseguridad Coursera.pdf" target="_blank"
+                                class="cert-link">Certificado en Ciberseguridad de Google, Coursera.
+                                <img src="./assets/certificates/img/Certificado Ciberseguridad Coursera.jpg"
+                                    alt="Preview del certificado" class="cert-preview"></a></p>
+                    </div>
+                </div>
+            </section>
+            <section id="experience" class="secciones">
+                <!-- Al ser solo una experiencia me dejaste ponerlo así en vez de como está en el modelo -->
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/clipboard-text.svg" alt="">
+                    <h2> Experiencia</h2>
+                </div>
+                <div class="contenedor-experiencia">
+                    <div class="contenedor-unico-experiencia">
+                        <img src="./assets/icons/list_icons/circle-svgrepo-com.svg" alt="">
+                        <p>
+                            <span class="texto_negrita">Expendedor en Carbugal (2024)</span>: Responsable de la gestión
+                            integral de la estación de servicio, incluyendo atención al cliente, manejo de caja y
+                            mantenimiento general de la estación, asegurando una experiencia positiva para los clientes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="tech_stack" class="secciones">
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/settings.svg" alt="">
+                    <h2>Conocimientos Tecnicos</h2>
+                </div>
+                <div id="tech_badges">
+                    <div id="html" class="tech_card">
+                        <img src="./assets/icons/tech_stack/HTML5_logo_and_wordmark.svg" alt="">
+                        <p>HTML 5</p>
+                    </div>
+                    <div id="css" class="tech_card">
+                        <img src="./assets/icons/tech_stack/css-3-svgrepo-com.svg" alt="">
+                        <p>CSS 3</p>
+                    </div>
+                    <div id="javascript" class="tech_card">
+                        <img src="./assets/icons/tech_stack/js-svgrepo-com.svg" alt="">
+                        <p>JavaScrit</p>
+                    </div>
+                    <div id="bootstrap" class="tech_card">
+                        <img src="./assets/icons/tech_stack/brand-bootstrap.svg" alt="">
+                        <p>BootStrap</p>
+                    </div>
+                    <div id="react" class="tech_card">
+                        <img src="./assets/icons/tech_stack/reactjs-icon.svg" alt="">
+                        <p>React</p>
+                    </div>
+                    <div id="expo" class="tech_card">
+                        <img src="./assets/icons/tech_stack/expo-client-logo.svg" alt="">
+                        <p>Expo</p>
+                    </div>
+                    <div id="python" class="tech_card">
+                        <img src="./assets/icons/tech_stack/python-svgrepo-com.svg" alt="">
+                        <p>Python</p>
+                    </div>
+                    <div id="fastapi" class="tech_card">
+                        <img src="./assets/icons/tech_stack/FastAPI.svg" alt="">
+                        <p>FastAPI</p>
+                    </div>
+                    <div id="sympy" class="tech_card">
+                        <img src="./assets/icons/tech_stack/sympy.svg" alt="">
+                        <p>SymPy</p>
+                    </div>
+                    <div id="numpy" class="tech_card">
+                        <img src="./assets/icons/tech_stack/numpy-svgrepo-com.svg" alt="">
+                        <p>NumPy</p>
+                    </div>
+                    <div id="matplotlib" class="tech_card">
+                        <img src="./assets/icons/tech_stack/Matplotlib.svg" alt="">
+                        <p>Matplotlib</p>
+                    </div>
+                    <div id="java" class="tech_card">
+                        <img src="./assets/icons/tech_stack/java-svgrepo-com.svg" alt="">
+                        <p>Java</p>
+                    </div>
+                    <div id="c" class="tech_card">
+                        <img src="./assets/icons/tech_stack/c-logo.svg" alt="">
+                        <p>C</p>
+                    </div>
+                    <div id="flutter" class="tech_card">
+                        <img src="./assets/icons/tech_stack/flutter_logo.svg" alt="">
+                        <p>Flutter</p>
+                    </div>
+                    <div id="mysql" class="tech_card">
+                        <img src="./assets/icons/tech_stack/mysql-logo-svgrepo-com.svg" alt="">
+                        <p>MySQL</p>
+                    </div>
+                    <div id="oracle" class="tech_card">
+                        <img src="./assets/icons/tech_stack/icons8-logo-de-oracle.svg" alt="">
+                        <p>Oracle Database</p>
+                    </div>
+                    <div id="bash" class="tech_card">
+                        <img src="./assets/icons/tech_stack/icons8-bash.svg" alt="">
+                        <p>Linux Bash</p>
+                    </div>
+                    <div id="git" class="tech_card">
+                        <img src="./assets/icons/tech_stack/git-icon.svg" alt="">
+                        <p>Git</p>
+                    </div>
+                    <div id="arduino" class="tech_card">
+                        <img src="./assets/icons/tech_stack/Arduino_Logo.svg" alt="">
+                        <p>Arduino</p>
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="secciones">
+                <!-- Los proyectos al ser tan grandes me dejaste ponerlos en columna en vez de en fila y los compenso ponienod las habilidades en fila -->
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/tools.svg" alt="" width="24" height="24">
+                    <h2>Proyectos Destacados</h2>
+                </div>
+                <div class="proyects_container">
+                    <div>
+                        <a href="https://github.com/bytrigi/ReelsumerBot" target="_blank" class="proyect_card">
+                            <div>
+                                <h2>Reelsumer Bot 🤖</h2>
+                                <hr>
+                                <p>
+                                    Bot de Telegram conectado con Notion que recibe un enlace de un Reel de Instagram,
+                                    con
+                                    IA lo analiza, resume el contenido y lo añade de manera clasificada y organizada en
+                                    una
+                                    pagina de Notion.
+                                </p>
+                                <div class="reelsumer-image-container">
+                                    <div class="reelsumer-image-item">
+                                        <img src="./img/proyects/Reelsumer Bot/[1].Notion_page.png"
+                                            alt="Pagina de Notion Asociada" width="30%" height="100%">
+                                        <p>Pagina de Notion Asociada</p>
+                                    </div>
+                                    <div class="reelsumer-image-item">
+                                        <img src="./img/proyects/Reelsumer Bot/[2].Main_telegram_chat.PNG"
+                                            alt="Respuesta del Bot en Telegram" width="30%" height="30%">
+                                        <p>Interfaz del Bot en Telegram (Chat)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-overlay">
+                                <div button class="ver-github-btn">
+                                    <p>Ver en GitHub</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/bytrigi/iOS-Agenda-Calendar-for-Windows" target="_blank"
+                            class="proyect_card">
+                            <div>
+                                <h2>Windows Agenda for iOS 📅</h2>
+                                <hr>
+                                <p>
+                                    Aplicación de escritorio (React/Electron) que provee una solución integral de
+                                    gestión de
+                                    tiempo con interfaz estilo macOS/iOS.
+                                    Implementa una base de datos reactiva (Dexie.js) para persistencia local y uso sin
+                                    conexión.
+                                    La base técnica esta en el uso del protocolo CalDav en el cual se basa el
+                                    calenadario de
+                                    iOS, habilitando la sincronización nativa y bidireccional entre la aplicacion y el
+                                    servicio de iCloud.
+                                    Además, incluye un buscador global omnibar, diferentes opciones de navegación y las
+                                    funcionalidades de hacer to-do lists con sus sublistas y la toma de notas.
+                                </p>
+                                <div class="agenda-image-container">
+                                    <img src="./img/proyects/agenda/[2].Day_screen_light_mode.png"
+                                        alt="miniatura del proyecto" width="80%" height="80%">
+                                    <p>Vista de día de la agenda</p>
+                                </div>
+                            </div>
+                            <div class="card-overlay">
+                                <div button class="ver-github-btn">
+                                    <p>Ver en GitHub</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="skills" class="secciones">
+                <div class="seccion_title">
+                    <img src="./assets/icons/sections/bolt.svg" alt="">
+                    <h2>Habilidades</h2>
+                </div>
+                <div class="contenedor-habilidades">
+                    <div class="contenedor-unico-habilidad">
+                        <div class="title_skill">
+                            <img src="./assets/icons/list_icons/star.svg" alt="">
+                            <h3 class="title_habilidad">Aprendizaje Continuo y Autodidacta</h3>
+                        </div>
+                        <p>
+                            Alta motivación por investigar e integrar nuevas tecnologías, frameworks y herramientas para
+                            resolver retos técnicos.
+                        </p>
+                    </div>
+                    <div class="contenedor-unico-habilidad">
+                        <div class="title_skill">
+                            <img src="./assets/icons/list_icons/star.svg" alt="">
+                            <h3 class="title_habilidad">Resolución de Problemas</h3>
+                        </div>
+                        <p>
+                            Capacidad analítica para desglosar requerimientos complejos en soluciones de software
+                            eficientes y escalables.
+                        </p>
+                    </div>
+                    <div class="contenedor-unico-habilidad">
+                        <div class="title_skill">
+                            <img src="./assets/icons/list_icons/star.svg" alt="">
+                            <h3 class="title_habilidad">Atención al Detalle (UI/UX)</h3>
+                        </div>
+                        <p>
+                            Enfoque riguroso en el diseño de interfaces de usuario atractivas, funcionales y
+                            completamente responsivas.
+                        </p>
+                    </div>
+                    <div class="contenedor-unico-habilidad">
+                        <div class="title_skill">
+                            <img src="./assets/icons/list_icons/star.svg" alt="">
+                            <h3 class="title_habilidad">Idiomas</h3>
+                        </div>
+                        <p>
+                            <img src="./img/spain_flag.png" alt="Spanish Flag" width="20"> Español (Nativo) | <img
+                                src="./img/uk_flag.png" alt="UK Flag" width="20"> B2 Inglés (Competencia técnica para
+                            lectura de documentación y resolución de incidencias).
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <audio id="ps4-beep" preload="auto">
+        <source src="./assets/audio/playstation-beep.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="welcome-sound" preload="auto">
+        <source src="./assets/audio/Ps4-Startup.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="login-sound" preload="auto">
+        <source src="./assets/audio/Login-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ps4-home-screen-music" loop>
+        <source src="./assets/audio/PS4-System-Menu-Music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="moving-Cursor-sound" preload="auto">
+        <source src="./assets/audio/Cursor.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="div-click" preload="auto">
+        <source src="./assets/audio/Click-Sound.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="ps4-btn hidden">
+        <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <span id="music-text">Música: OFF</span>
+    </button>
+    <script>
+        // Variables
+        const backgroundMusic = document.getElementById("ps4-home-screen-music");
+        const beepSound = document.getElementById("ps4-beep");
+        const hoverSound = document.getElementById("moving-Cursor-sound");
+        const clickDivSound = document.getElementById("div-click");
+        const btnMusic = document.getElementById("music-toggle");
+        const textMusic = document.getElementById("music-text");
+        const bgIntro = document.getElementById("bg-intro");
+        const screenSoundCheck = document.getElementById("sound-check-overlay");
+        const screenStartup = document.getElementById("ps4-welcome-screen");
+        const screenUser = document.getElementById("ps4-user-select");
+        const screenMain = document.getElementById("main-portfolio");
+        const btnEnableSound = document.getElementById("btn-enable-sound");
+        const userBtn = document.getElementById("user-profile-btn");
+        const startupLogo = document.getElementById("startup-logo");
+        const screenLogoStartup = document.getElementById("ps4-startup-screen");
+        const welcomeSound = document.getElementById("welcome-sound");
+        const loginSound = document.getElementById("login-sound");
+
+        // ==========================================
+        // 🛠️ MODO DESARROLLADOR (SALTA LA INTRO)
+        // ==========================================
+
+        const DEV_MODE = false;
+
+        if (DEV_MODE) {
+            document.getElementById("sound-check-overlay").style.display = "none";
+            document.getElementById("ps4-startup-screen").style.display = "none";
+            document.getElementById("ps4-welcome-screen").style.display = "none";
+            document.getElementById("ps4-user-select").style.display = "none";
+
+            const devMain = document.getElementById("main-portfolio");
+            devMain.style.display = "flex";
+            devMain.style.opacity = "1";
+
+            document.getElementById("bg-intro").style.display = "none";
+            document.getElementById("music-toggle").classList.remove("hidden");
+            document.getElementById("music-toggle").style.display = "flex";
+        }
+
+        backgroundMusic.volume = 0.5;
+        hoverSound.volume = 1;
+        clickDivSound.volume = 0.6;
+        beepSound.volume = 1;
+        welcomeSound.volume = 0.7;
+        loginSound.volume = 0.8;
+
+        btnEnableSound.addEventListener("click", () => {
+            screenLogoStartup.classList.remove("hidden");
+            if (beepSound) { }
+            screenSoundCheck.style.transition = "opacity 0.5s";
+            screenSoundCheck.style.opacity = "0";
+
+            setTimeout(() => {
+                screenSoundCheck.style.display = "none";
+                setTimeout(() => {
+                    if (beepSound) {
+                        beepSound.currentTime = 0;
+                        beepSound.play().catch(e => console.log("Falta archivo beep"));
+                    }
+                    startupLogo.classList.add("logo-visible");
+
+                    setTimeout(() => {
+                        startupLogo.classList.remove("logo-visible");
+                        setTimeout(() => {
+                            screenLogoStartup.style.display = "none";
+                            screenStartup.classList.remove("hidden");
+                            void screenStartup.offsetWidth;
+                            screenStartup.classList.add("fade-in-slow");
+                            if (welcomeSound) {
+                                welcomeSound.currentTime = 0;
+                                welcomeSound.play().catch(e => console.log("Falta audio welcome"));
+                            }
+                            document.addEventListener("click", startConsole);
+                        }, 1000);
+                    }, 3000);
+                }, 2000);
+            }, 500);
+        });
+
+        let consoleStarted = false;
+
+        function startConsole() {
+            if (consoleStarted) return;
+            consoleStarted = true;
+
+            // Pausar y resetear sonido de bienvenida al hacer clic
+            if (welcomeSound) {
+                welcomeSound.pause();
+                welcomeSound.currentTime = 0;
+            }
+
+            clickDivSound.currentTime = 0;
+            clickDivSound.play().catch(() => { });
+            screenStartup.classList.add("fade-out");
+
+            setTimeout(() => {
+                screenStartup.style.display = "none";
+                screenUser.classList.remove("hidden");
+                screenUser.classList.add("fade-in");
+            }, 500);
+            document.removeEventListener("click", startConsole);
+        }
+
+        userBtn.addEventListener("click", () => {
+            bgIntro.classList.add("bg-hidden");
+            screenUser.classList.add("fade-out-long");
+
+            setTimeout(() => {
+                screenUser.style.display = "none";
+                screenMain.style.display = "flex";
+                void screenMain.offsetWidth;
+                screenMain.classList.add("fade-in-long");
+
+                if (loginSound) {
+                    loginSound.currentTime = 0;
+                    loginSound.play().catch(e => console.log("Falta audio login"));
+                }
+            }, 2000);
+
+            setTimeout(() => {
+                backgroundMusic.play().then(() => {
+                    btnMusic.classList.add("playing");
+                    textMusic.innerText = "Música: ON";
+                    btnMusic.classList.remove("hidden");
+                    btnMusic.style.display = "flex";
+                }).catch(e => console.log("Audio autoplay prevented"));
+            }, 10000);
+        });
+
+        btnMusic.addEventListener("click", () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                btnMusic.classList.add("playing");
+                textMusic.innerText = "Música: ON";
+            } else {
+                backgroundMusic.pause();
+                btnMusic.classList.remove("playing");
+                textMusic.innerText = "Música: OFF";
+            }
+        });
+
+        const socialDivs = document.querySelectorAll(".social_links > a > div");
+        socialDivs.forEach(div => {
+            div.addEventListener("mouseenter", () => {
+                hoverSound.currentTime = 0;
+                hoverSound.play().catch(() => { });
+            });
+            div.addEventListener("click", () => {
+                clickDivSound.currentTime = 0;
+                clickDivSound.play().catch(() => { });
+            });
+        });
+
+        const userCards = document.querySelectorAll(".user-card");
+        userCards.forEach(card => {
+            card.addEventListener("mouseenter", () => {
+                hoverSound.currentTime = 0;
+                hoverSound.play().catch(() => { });
+            });
+        });
+
+    </script>
+
+    <footer>
+        <p>&copy; 2026 Adrián Trigo Cadaveira. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
