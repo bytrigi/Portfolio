@@ -1,0 +1,1599 @@
+/* Define una fuente tipográfica personalizada */
+@font-face {
+    font-family: 'Logo-PS4-Font-1';
+    src: url('./fonts/PsBold-2Oy2w.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define una fuente tipográfica personalizada */
+@font-face {
+    font-family: 'Logo-PS4-Font-2';
+    src: url('./fonts/zrnic___.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define una fuente tipográfica personalizada */
+@font-face {
+    font-family: 'Menu-PS4-Font';
+    src: url('./fonts/Frutiger.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define una fuente tipográfica personalizada */
+@font-face {
+    font-family: 'Menu-PS4-Font-Bold';
+    src: url('./fonts/Frutiger_bold.ttf?v=2') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Define una fuente tipográfica personalizada */
+@font-face {
+    font-family: 'PS4-System-Font';
+    src: url('./fonts/SSTRg.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reseteo básico y estilos globales para todos los elementos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Configuración global del documento principal (html) */
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Estilos base y diseño general del cuerpo de la página (body) */
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--color-white);
+    background-attachment: fixed;
+    font-family: 'PS4-System-Font', sans-serif;
+    overflow-x: hidden;
+    /* Previene scroll horizontal indeseado en móviles */
+}
+
+/* ========================================= */
+/* VARIABLES DE COLOR                        */
+/* ========================================= */
+/* Define las variables de color y estilos globales */
+:root {
+    /* Base Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-transparent: transparent;
+
+    /* Backgrounds */
+    --bg-gradient-start: #084dbc;
+    --bg-gradient-end: #00123a;
+    --bg-main-panel: rgba(0, 0, 0, 0.5);
+    --bg-section: #003370;
+    --bg-section-title: rgba(35, 96, 208, 0.663);
+
+    /* Interactive & Accents */
+    --color-accent-blue: #0073ff;
+    --shadow-accent-blue: rgba(16, 116, 255, 0.723);
+    --color-social-hover: #000dffe6;
+
+    /* Shadows & Overlays */
+    --shadow-section: #000000;
+    --shadow-section-title: rgba(0, 0, 0, 0.375);
+    --shadow-icon: rgba(14, 61, 250, 0.595);
+    --shadow-social-hover: rgba(0, 0, 0, 0.718);
+    --overlay-dark: rgba(0, 0, 0, 0.4);
+    --overlay-dark-heavy: rgba(0, 0, 0, 0.39);
+
+    /* UI Buttons */
+    --bg-btn: rgba(0, 0, 0, 0.4);
+    --border-btn-border: rgba(255, 255, 255, 0.3);
+    --bg-btn-hover: rgba(0, 112, 209, 0.6);
+    --border-btn-hover: #00aaff;
+    --shadow-btn-hover: rgba(0, 170, 255, 0.6);
+    --color-success: #00ff88;
+    --shadow-success: rgba(0, 255, 136, 0.3);
+
+    /* Tech Stack Badge Colors */
+    --tech-html: rgba(255, 68, 0, 0.803);
+    --tech-css: #084dbc;
+    --tech-js: #FFCA28;
+    --tech-bootstrap: rgb(166, 0, 255);
+    --tech-react: rgb(9, 122, 168);
+    --tech-expo: #3c3c3cc8;
+    --tech-python: #FFCA28;
+    --tech-sympy: #56ff4dae;
+    --tech-numpy: #2873ff;
+    --tech-matplotlib: #b2890f;
+    --tech-fastapi: rgb(50, 213, 159);
+    --tech-java: rgba(189, 44, 0, 0.993);
+    --tech-c: #00123a;
+    --tech-flutter: #42A5F5;
+    --tech-mysql: rgb(0, 54, 107);
+    --tech-oracle: rgb(119, 0, 0);
+    --tech-bash: #00ff88;
+    --tech-git: rgb(145, 47, 11);
+    --tech-arduino: rgb(0, 151, 156);
+
+    /* Specific */
+    --bg-avatar: #111;
+}
+
+
+
+
+
+
+
+
+/* --- MAIN PORTFOLIO STYLES --- */
+
+/* Configuración principal del contenedor del portfolio */
+main {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 1400px;
+    /* Limita el ancho máximo en pantallas ultrawide */
+    background-color: var(--bg-main-panel);
+    border-radius: 80px;
+    margin: 5% auto;
+    /* Animación de entrada suave */
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+/* Clase que activa la animación de aparición para el contenedor principal */
+main.fade-in {
+    opacity: 1;
+}
+
+/* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+.columna_izq {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    padding: 5%;
+    position: relative;
+}
+
+/* Define la apariencia y estructura de la foto de perfil principal */
+#pfp {
+    border-radius: 100%;
+    height: auto;
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 1/1;
+    border: 4px solid var(--color-accent-blue);
+    box-shadow: 0 0 35px 10px var(--shadow-accent-blue);
+}
+
+/* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+.columna_izq>h1 {
+    font-family: 'Logo-PS4-Font-2', sans-serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    /* Responsivo */
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+.columna_izq>p {
+    font-family: 'PS4-System-Font';
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    text-align: center;
+}
+
+/* Línea divisoria estilo degradado */
+/* Efecto o elemento extra (pseudoelemento) anclado a la columna izquierda (foto y textos) */
+.columna_izq::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 7%;
+    bottom: 9%;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+/* Define la apariencia y estructura de la columna derecha (contenido general) */
+.columna_drch {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 5%;
+}
+
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones {
+    margin-bottom: 50px;
+    background-color: var(--bg-section);
+    padding: 5%;
+    border-radius: 50px;
+    transition: all 0.15s ease;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar los contenedores de las diferentes secciones */
+.secciones:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 1px 7px var(--shadow-section);
+}
+
+/* Define la apariencia y estructura de los títulos de cada sección */
+.seccion_title {
+    background-color: var(--bg-section-title);
+    border-radius: 50px;
+    box-shadow: 0 0 1px 5px var(--shadow-section-title);
+    padding: 2% 4%;
+}
+
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones>div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones h2 {
+    margin: 0;
+    font-family: 'Menu-PS4-Font-Bold', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1;
+    color: var(--color-white);
+}
+
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones>div>img,
+.secciones>div>svg {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+/* Iconos universales */
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones>div>img {
+    filter: invert(100%) drop-shadow(0 0 4px var(--shadow-icon));
+}
+
+/* Estilos específicos para el identificador de interfaz #projects>div>img */
+#projects>div>img {
+    height: 28px;
+}
+
+/* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+.secciones p {
+    font-family: 'PS4-System-Font', sans-serif;
+    font-size: 1.125rem;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+/* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+.social_links {
+    width: 100%;
+    max-width: 400px;
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+.social_links p {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Menu-PS4-Font-Bold';
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+.social_links img {
+    width: 32px;
+}
+
+/* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+.social_links>a>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-white);
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background-color: var(--color-transparent);
+    color: var(--color-white);
+    gap: 2.5%;
+}
+
+/* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+.social_links>a {
+    color: var(--color-black);
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar los enlaces interactivos a redes sociales */
+.social_links>a>div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px var(--shadow-social-hover);
+    border-color: var(--color-social-hover);
+}
+
+/* Respuesta visual al pasar el cursor o enfocar los enlaces interactivos a redes sociales */
+.social_links>a:hover {
+    color: var(--color-social-hover);
+}
+
+/* Define la apariencia y estructura de el botón lateral inspirado en menú de PS4 */
+.ps4-btn {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    /* Pegado a la derecha */
+    transform: translateX(calc(100% - 44px));
+    /* Oculta el texto dejando solo el icono (44px aprox de ancho interior) visible */
+    z-index: 1000;
+    background: var(--color-white);
+    /* Color base sólido blanco */
+    border: none;
+    border-radius: 30px 0 0 30px;
+    /* Borde redondeado solo por la izquierda */
+    color: var(--color-black);
+    /* Letra e icono negros para contraste */
+    padding: 10px 15px 10px 15px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Transición elástica suave */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Respuesta visual al pasar el cursor o enfocar el botón lateral inspirado en menú de PS4 */
+.ps4-btn:hover,
+.ps4-btn:focus {
+    transform: translateX(0);
+    /* Al hacer hover desvelamos el componente entero hacia la izquierda */
+    background: var(--color-white);
+    box-shadow: -5px 0 15px var(--shadow-btn-hover);
+}
+
+/* Cuando está reproduciendo, le damos un tonito sutil distinto o simplemente mantenemos el verde pero sutil */
+/* Define la apariencia y estructura de el indicador visual de música en reproducción */
+.playing {
+    border-left: 4px solid var(--color-success) !important;
+    box-shadow: -2px 0 15px var(--shadow-success);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* INTRO SCREENS      */
+/* ========================================= */
+
+/* Define la apariencia y estructura de la pantalla de arranque en negro con logotipo */
+#ps4-startup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-black);
+    z-index: 15000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Define la apariencia y estructura de la pantalla de arranque en negro con logotipo */
+#ps4-startup-screen>img {
+    width: clamp(200px, 40vw, 300px);
+    filter: invert(100%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Estilo aplicado a la clase de elementos .logo-visible */
+.logo-visible {
+    opacity: 1 !important;
+}
+
+/* Define la apariencia y estructura de la transición en capa negra a pantalla completa */
+.full-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Estilo aplicado a la clase de elementos .hidden */
+.hidden {
+    display: none !important;
+}
+
+/* Estilo aplicado a la clase de elementos .fade-out */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Estilo aplicado a la clase de elementos .fade-in */
+.fade-in {
+    animation: fadeInAnimation 0.5s forwards;
+}
+
+/* Define la secuencia de la animación fadeInAnimation */
+@keyframes fadeInAnimation {
+
+    /* Fotograma inicial de la animación (from) */
+    from {
+        opacity: 0;
+    }
+
+    /* Fotograma final de la animación (to) */
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/* -- PANTALLA 1: STARTUP -- */
+/* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+.welcome-content>img {
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+    width: clamp(150px, 20vw, 300px);
+    filter: invert(100%);
+    z-index: 10;
+}
+
+/* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+.welcome-content h1 {
+    font-family: 'Logo-PS4-Font-2', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 10px 0 80px 0;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Define la apariencia y estructura de la advertencia obligatoria de salud al inicio */
+.warning-text h2 {
+    font-weight: normal;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: 10px;
+    font-family: 'Menu-PS4-Font', sans-serif;
+}
+
+/* Define la apariencia y estructura de el efecto de parpadeo de texto */
+.blink {
+    animation: blinker 2s linear infinite;
+    font-size: 1.125rem;
+    opacity: 0.8;
+}
+
+/* Define la secuencia de la animación blinker */
+@keyframes blinker {
+
+    /* Fotograma clave al 50% de la animación */
+    50% {
+        opacity: 0.3;
+    }
+}
+
+
+
+/* -- PANTALLA 2: USER SELECT -- */
+/* Define la apariencia y estructura de el contenido de la selección de usuario */
+.user-select-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Define la apariencia y estructura de el contenido de la selección de usuario */
+.user-select-container h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: normal;
+    margin-bottom: 60px;
+    font-family: 'Menu-PS4-Font', sans-serif;
+}
+
+/* Estilo aplicado a la clase de elementos .info_text_controller_connected */
+.info_text_controller_connected {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Define la apariencia y estructura de el contenido de la selección de usuario */
+.user-select-container .info_text_controller_connected h2 {
+    margin: 0;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    line-height: 1;
+}
+
+/* Estilo aplicado a la clase de elementos .info_text_controller_connected img */
+.info_text_controller_connected img {
+    filter: invert(100%);
+    width: 35px;
+    height: auto;
+    display: block;
+}
+
+/* Define la apariencia y estructura de el contenedor en malla para los usuarios */
+.users-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    /* Para pantallas pequeñas */
+    border: none;
+}
+
+/* Define la apariencia y estructura de los recuadros para elegir cuenta de usuario */
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 220px;
+    height: 300px;
+    border: 4px solid var(--color-transparent);
+    box-sizing: border-box;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar los recuadros para elegir cuenta de usuario */
+.user-card:hover {
+    transform: scale(1.1);
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 20px var(--shadow-btn-hover), inset 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+/* Define la apariencia y estructura de el recuadro que contiene el avatar del usuario */
+.user-avatar-container {
+    width: 100%;
+    height: 80%;
+    background: var(--bg-avatar);
+    margin: 0;
+    position: relative;
+    border: none;
+    box-shadow: none;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar los recuadros para elegir cuenta de usuario */
+.user-card:hover .user-avatar-container {
+    border: none;
+    box-shadow: none;
+}
+
+/* Define la apariencia y estructura de el recuadro que contiene el avatar del usuario */
+.user-avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Define la apariencia y estructura de los recuadros para elegir cuenta de usuario */
+.user-card h3 {
+    font-family: 'Menu-PS4-Font', sans-serif;
+    font-size: 1.375rem;
+    font-weight: normal;
+    color: var(--color-white);
+    width: 100%;
+    height: 20%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--overlay-dark-heavy);
+    text-shadow: 1px 1px 2px var(--color-black);
+}
+
+/* Estilo aplicado a la clase de elementos .fade-in-slow */
+.fade-in-slow {
+    animation: fadeInAnimation 3s ease-in-out forwards;
+}
+
+/* Estilos específicos para el identificador de interfaz #ps4-welcome-screen.fade-in-slow */
+#ps4-welcome-screen.fade-in-slow {
+    transition: none !important;
+}
+
+/* Estilo aplicado a la clase de elementos .fade-out-long */
+.fade-out-long {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Estilo aplicado a la clase de elementos .fade-in-long */
+.fade-in-long {
+    animation: fadeInAnimation 2s ease-in-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+/*----------- ESTILOS INDIVIDUALES SECCIONES ------------*/
+
+/* Estilos específicos para el identificador de interfaz #profile */
+#profile {
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+/*-------------- ESTILOS TECH BADGES --------------*/
+
+/* Define la apariencia y estructura de el contenedor que agrupa las insignias de tecnologías */
+#tech_badges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    /* Separación unificada mediante flex-gap */
+    margin-top: 20px;
+}
+
+/* Define la apariencia y estructura de las tarjetas de cada insignia técnica */
+.tech_card {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    border: 1px solid var(--color-white);
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 5px 10px;
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+    flex-grow: 1;
+    /* Para que rellenen huecos en móvil */
+    max-width: fit-content;
+}
+
+/* Define la apariencia y estructura de las tarjetas de cada insignia técnica */
+.tech_card>img {
+    width: 20px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+/* Define la apariencia y estructura de las tarjetas de cada insignia técnica */
+.tech_card>p {
+    color: var(--color-white);
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.875rem;
+    text-shadow: 1.5px 1.5px 1px var(--color-black);
+    text-align: center;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar las tarjetas de cada insignia técnica */
+.tech_card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px var(--shadow-accent-blue);
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilo e insignia visual de la tecnología HTML */
+#html {
+    background-color: var(--tech-html);
+}
+
+/* Estilo e insignia visual de la tecnología CSS */
+#css {
+    background-color: var(--tech-css);
+}
+
+/* Estilo e insignia visual de la tecnología JAVASCRIPT */
+#javascript {
+    background-color: var(--tech-js);
+}
+
+/* Estilo e insignia visual de la tecnología JAVASCRIPT */
+#javascript>img {
+    border-radius: 10px;
+}
+
+/* Estilo e insignia visual de la tecnología BOOTSTRAP */
+#bootstrap {
+    background-color: var(--tech-bootstrap);
+}
+
+/* Estilo e insignia visual de la tecnología REACT */
+#react {
+    background-color: var(--tech-react);
+}
+
+/* Estilo e insignia visual de la tecnología EXPO */
+#expo {
+    background-color: var(--tech-expo);
+}
+
+/* Estilo e insignia visual de la tecnología PYTHON */
+#python {
+    background-color: var(--tech-python);
+}
+
+/* Estilo e insignia visual de la tecnología FASTAPI */
+#fastapi {
+    background-color: var(--tech-fastapi);
+}
+
+/* Estilo e insignia visual de la tecnología JAVA */
+#java {
+    background-color: var(--tech-java);
+}
+
+/* Estilo e insignia visual de la tecnología C */
+#c {
+    background-color: var(--tech-c);
+}
+
+/* Estilo e insignia visual de la tecnología C */
+#c>img {
+    height: 20px;
+}
+
+/* Estilo e insignia visual de la tecnología FLUTTER */
+#flutter {
+    background-color: var(--tech-flutter);
+}
+
+/* Estilo e insignia visual de la tecnología MYSQL */
+#mysql {
+    background-color: var(--tech-mysql);
+}
+
+/* Estilo e insignia visual de la tecnología ORACLE */
+#oracle {
+    background-color: var(--tech-oracle);
+}
+
+/* Estilo e insignia visual de la tecnología BASH */
+#bash {
+    background-color: var(--tech-bash);
+}
+
+/* Estilo e insignia visual de la tecnología GIT */
+#git {
+    background-color: var(--tech-git);
+}
+
+/* Estilo e insignia visual de la tecnología SYMPY */
+#sympy {
+    background-color: var(--tech-sympy);
+}
+
+/* Estilo e insignia visual de la tecnología NUMPY */
+#numpy {
+    background-color: var(--tech-numpy);
+}
+
+/* Estilo e insignia visual de la tecnología MATPLOTLIB */
+#matplotlib {
+    background-color: var(--tech-matplotlib);
+}
+
+/* Estilo e insignia visual de la tecnología ARDUINO */
+#arduino {
+    background-color: var(--tech-arduino);
+}
+
+
+
+
+
+
+
+
+/*-------------- ESTILOS LISTA FORMACION --------------*/
+
+/* Titulos de subsección */
+.subsection-title {
+    font-family: 'Menu-PS4-Font-Bold', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: var(--color-white);
+    margin: 30px 0 10px 15px;
+    text-align: left;
+}
+
+/* Contenedor oscuro principal (Fondo azul oscuro de la imagen) */
+.education-group {
+    background-color: rgba(20, 45, 80, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    /* <-- ¡ESTA ES LA MAGIA! Obliga a igualar alturas */
+    gap: 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tarjeta individual de educación (Cajitas azules más claras interiores) */
+.education-card {
+    background-color: var(--bg-section-title);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    flex: 1 1 calc(50% - 20px);
+    min-width: 0;
+
+    /* --- CORRECCIÓN FLEXBOX --- */
+    height: auto;
+    /* BORRA el height: 100% y déjalo en auto */
+    align-self: stretch;
+    /* Refuerza que la caja individual se estire */
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--shadow-accent-blue);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.education-card>p {
+    text-align: left;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.education-card>img {
+    width: 28px;
+    flex-shrink: 0;
+}
+
+/* Para los certificados (podemos hacerlos de 3 columnas en desktop) */
+.cert-card {
+    flex: 1 1 calc(33.333% - 20px);
+}
+
+/* --- ESTILOS PARA EL TEXTO DEL CERTIFICADO --- */
+.cert-link {
+    position: relative;
+    color: var(--color-white);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    display: block;
+    /* Para que ocupe y posicione mejor la img flotante */
+}
+
+.cert-link:hover {
+    color: black;
+    /* Cambiamos el color de hover para resaltar sobre el fondo azul */
+}
+
+/* --- ESTILOS PARA LA IMAGEN FLOTANTE (PREVIEW) --- */
+.cert-preview {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 250px;
+    border-radius: 10px;
+    border: 2px solid #5d67da;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 202, 40, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cert-link:hover .cert-preview {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media screen and (max-width: 991.98px) {
+    .cert-preview {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+/*--------- ESTILOS PROYECTOS DESTACADOS ----------*/
+
+/* Define la apariencia y estructura de la retícula principal para mostrar proyectos */
+.proyects_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    /* Para que todas las cartas tengan la misma altura si están en fila */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 5%;
+}
+
+/* Define la apariencia y estructura de la retícula principal para mostrar proyectos */
+.proyects_container>div>a {
+    text-decoration: none;
+    color: var(--color-white);
+    display: flex;
+    width: 100%;
+    /* Por defecto 100% para móvil */
+    margin-bottom: 3%;
+}
+
+/* --- TARJETA BASE --- */
+/* Define la apariencia y estructura de la tarjeta con detalles individuales de cada proyecto */
+.proyect_card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-white);
+    border-radius: 40px;
+    padding: 30px;
+    background-color: var(--color-black);
+    transition: all 0.2s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Define la apariencia y estructura de la tarjeta con detalles individuales de cada proyecto */
+.proyect_card>div>h2 {
+    text-align: left;
+    margin-top: 0;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+/* Define la apariencia y estructura de la tarjeta con detalles individuales de cada proyecto */
+.proyect_card>div>p {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+/* Define la apariencia y estructura de la tarjeta con detalles individuales de cada proyecto */
+.proyect_card>div>img {
+    border-radius: 15px;
+}
+
+/* Define la apariencia y estructura de el velo oscuro superpuesto al señalar el proyecto */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 38px;
+    /* Para que no se pise con el borde redondeado */
+}
+
+/* Define la apariencia y estructura de el botón de redirección hacia GitHub */
+.ver-github-btn {
+    border: 2px solid var(--color-white);
+    background-color: var(--bg-gradient-start);
+    color: var(--color-white);
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 60px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar el botón de redirección hacia GitHub */
+.ver-github-btn:hover {
+    border: 2px solid var(--bg-gradient-start);
+    background-color: var(--color-white);
+    color: var(--color-accent-blue);
+    text-shadow: 0 0 10px rgba(16, 116, 255, 0.8),
+        0 0 15px rgba(16, 116, 255, 0.6);
+}
+
+/* Respuesta visual al pasar el cursor o enfocar la tarjeta con detalles individuales de cada proyecto */
+.proyect_card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 20px 5px #0000009d;
+}
+
+/* Respuesta visual al pasar el cursor o enfocar la tarjeta con detalles individuales de cada proyecto */
+.proyect_card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Reelsumer */
+.reelsumer-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Reelsumer */
+.reelsumer-image-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Reelsumer */
+.reelsumer-image-item>img {
+    width: 70%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Reelsumer */
+.reelsumer-image-item>p {
+    margin: 0;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--color-white);
+    text-shadow: 1px 1px 2px var(--color-black);
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Agenda */
+.agenda-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15%;
+    overflow: hidden;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Agenda */
+.agenda-image-container>img {
+    border-radius: 15px;
+}
+
+/* Define la apariencia y estructura de los activos gráficos del proyecto Agenda */
+.agenda-image-container>p {
+    margin: 0;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--color-white);
+    text-shadow: 1px 1px 2px var(--color-black);
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------- ESTILOS EXPERIENCIA ----------*/
+
+/* Define la apariencia y estructura de la estructuración de los años de experiencia */
+.contenedor-experiencia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 15px;
+    /* Cambiamos el 2% por un valor fijo en píxeles para tener más control */
+    margin-top: 20px;
+}
+
+/* Define la apariencia y estructura de la estructuración de los años de experiencia */
+.contenedor-unico-experiencia {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Define la apariencia y estructura de la estructuración de los años de experiencia */
+.contenedor-unico-experiencia>p {
+    text-align: justify;
+    margin: 0;
+    /* ¡LA CLAVE! Le quitamos todos los márgenes extra al párrafo */
+}
+
+/* Define la apariencia y estructura de la estructuración de los años de experiencia */
+.contenedor-unico-experiencia>img {
+    width: 15px;
+    filter: invert(100%);
+    flex-shrink: 0;
+    /* Al quitar el margen del texto, la imagen se sube. 
+       Ajustamos este valor para que quede alineada con la primera línea */
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------- ESTILOS HABILIDADES ----------*/
+/* Define la apariencia y estructura de el formato de las columnas de habilidades */
+.contenedor-habilidades {
+    background-color: rgba(20, 45, 80, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo aplicado a la clase de elementos .contenedor-unico-habilidad */
+.contenedor-unico-habilidad {
+    background-color: var(--bg-section-title);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* Puedes cambiar esto a center si prefieres en el futuro */
+    align-self: stretch;
+    height: auto;
+    gap: 15px;
+    flex: 1 1 calc(50% - 20px);
+    min-width: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contenedor-unico-habilidad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--shadow-accent-blue);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo aplicado a la clase de elementos .title_skill */
+.title_skill {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    text-shadow: 1px 1px 2px var(--color-black);
+}
+
+.title_skill>img {
+    width: 30px;
+    filter: invert(100%);
+    flex-shrink: 0;
+}
+
+.title_habilidad {
+    margin: 0;
+    color: var(--color-white);
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* Estilo aplicado a la clase de elementos .contenedor-unico-habilidad>p */
+.contenedor-unico-habilidad>p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.4;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Define la apariencia y estructura de los textos con mayor peso en negrita */
+.texto_negrita {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Define la apariencia y estructura de el bloque del pie de página */
+footer {
+    margin-bottom: 4%;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* MEDIA QUERIES (Bootstrap 5.0 Desktop-First) */
+/* ========================================= */
+
+/* X-Large devices (large desktops, less than 1400px) */
+/* Reglas para pantallas extra grandes (hasta 1399px) */
+@media (max-width: 1399.98px) {
+
+    /* Configuración principal del contenedor del portfolio */
+    main {
+        width: 90%;
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+/* Reglas para pantallas grandes (hasta 1199px) */
+@media (max-width: 1199.98px) {
+
+    /* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+    .columna_izq {
+        width: 45%;
+    }
+
+    /* Define la apariencia y estructura de la columna derecha (contenido general) */
+    .columna_drch {
+        width: 55%;
+    }
+
+    /* Define la apariencia y estructura de el contenido de la selección de usuario */
+    .user-select-container h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+/* Reglas para tablets y pantallas medianas (hasta 991px) */
+@media (max-width: 991.98px) {
+
+    /* Configuración principal del contenedor del portfolio */
+    main {
+        flex-direction: column;
+        width: 95%;
+        margin: 2% auto;
+        border-radius: 40px;
+        /* Reducir radio en pantallas menores */
+    }
+
+    /* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+    .columna_izq {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
+    /* Define la apariencia y estructura de la columna derecha (contenido general) */
+    .columna_drch {
+        width: 100%;
+        padding-top: 5%;
+    }
+
+    /* Cambiar línea divisoria de vertical a horizontal */
+    /* Efecto o elemento extra (pseudoelemento) anclado a la columna izquierda (foto y textos) */
+    .columna_izq::after {
+        top: auto;
+        bottom: 0;
+        right: 10%;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%);
+    }
+
+    /* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+    .welcome-content h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 40px;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links>a {
+        flex: 1 1 calc(33.333% - 15px);
+        min-width: 120px;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links>a>div {
+        flex-direction: column;
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links p {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    /* Adaptar certificados a 2 columnas en vez de 3 en tablets */
+    .cert-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+/* Reglas para móviles en horizontal (hasta 767px) */
+@media (max-width: 767.98px) {
+
+    /* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+    .columna_izq>h1 {
+        font-size: 2rem;
+    }
+
+    /* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+    .columna_izq>p {
+        font-size: 1rem;
+    }
+
+    /* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+    .secciones {
+        padding: 8%;
+        border-radius: 30px;
+    }
+
+    /* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+    .secciones h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Define la apariencia y estructura de el contenedor en malla para los usuarios */
+    .users-grid {
+        gap: 20px;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links>a {
+        flex: 1 1 100%;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links>a>div {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    /* Define la apariencia y estructura de los enlaces interactivos a redes sociales */
+    .social_links p {
+        margin-top: 0;
+    }
+
+    /* Define la apariencia y estructura de la tarjeta con detalles individuales de cada proyecto */
+    .proyect_card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    /* Estilo aplicado a la clase de elementos .info_text_controller_connected */
+    .info_text_controller_connected {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* En móviles, las tarjetas de educación y certificados ocupan todo el ancho (columna) */
+    .education-card,
+    .contenedor-unico-habilidad {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+/* Reglas para móviles pequeños en vertical (hasta 575px) */
+@media (max-width: 575.98px) {
+
+    /* Configuración principal del contenedor del portfolio */
+    main {
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    /* Define la apariencia y estructura de la columna izquierda (foto y textos) */
+    .columna_izq {
+        padding: 20px 5%;
+    }
+
+    /* Define la apariencia y estructura de la columna derecha (contenido general) */
+    .columna_drch {
+        padding: 20px 5%;
+    }
+
+    /* Define la apariencia y estructura de los contenedores de las diferentes secciones */
+    .secciones {
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Define la apariencia y estructura de la foto de perfil principal */
+    #pfp {
+        max-width: 180px;
+    }
+
+    /* Define la apariencia y estructura de el contenido de la selección de usuario */
+    .user-select-container h2 {
+        font-size: 1.25rem;
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+
+    /* Define la apariencia y estructura de el botón lateral inspirado en menú de PS4 */
+    .ps4-btn {
+        top: 20px;
+        padding: 8px 10px 8px 10px;
+        font-size: 13px;
+        transform: translateX(calc(100% - 38px));
+    }
+
+    /* Define la apariencia y estructura de el botón lateral inspirado en menú de PS4 */
+    .ps4-btn>svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+    .welcome-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    /* Define la apariencia y estructura de el bloque de contenido de bienvenida inicial */
+    .welcome-content>img {
+        width: clamp(100px, 20vw, 150px);
+    }
+
+    /* Define la apariencia y estructura de la presentación visual de la formación académica */
+    .formacion-principal,
+    #certificates,
+    .formacion-secundaria {
+        align-items: flex-start;
+    }
+
+    /* Define la apariencia y estructura de la presentación visual de la formación académica */
+    .container-formacion-secundaria {
+        margin-left: 20px;
+    }
+}
