@@ -1,7 +1,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'Logo-PS4-Font-1';
-    src: url('./fonts/PsBold-2Oy2w.ttf') format('truetype');
+    src: url('/fonts/PsBold-2Oy2w.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -9,7 +9,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'Logo-PS4-Font-2';
-    src: url('./fonts/zrnic___.ttf') format('truetype');
+    src: url('/fonts/zrnic___.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,7 +17,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'Menu-PS4-Font';
-    src: url('./fonts/Frutiger.ttf') format('truetype');
+    src: url('/fonts/Frutiger.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -25,7 +25,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'Menu-PS4-Font-Bold';
-    src: url('./fonts/Frutiger_bold.ttf?v=2') format('truetype');
+    src: url('/fonts/Frutiger_bold.ttf?v=2') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -33,7 +33,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'PS4-System-Font';
-    src: url('./fonts/SSTRg.TTF') format('truetype');
+    src: url('/fonts/SSTRg.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
