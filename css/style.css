@@ -25,7 +25,7 @@
 /* Define una fuente tipográfica personalizada */
 @font-face {
     font-family: 'Menu-PS4-Font-Bold';
-    src: url('/fonts/Frutiger_bold.ttf?v=2') format('truetype');
+    src: url('/fonts/Frutiger_bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
